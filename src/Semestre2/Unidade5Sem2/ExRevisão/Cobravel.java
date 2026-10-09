@@ -4,6 +4,6 @@ public interface Cobravel {
     double calcularValorCobrar();
 
     default String gerarComporovante(){
-        return "Valor a cobrar: ";
+        return "Valor a cobrar: " + calcularValorCobrar();
     }
 }
