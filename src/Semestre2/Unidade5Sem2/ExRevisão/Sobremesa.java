@@ -13,12 +13,25 @@ public class Sobremesa extends ItensCardapio{
 
     @Override
     public double calcularPreco() {
-        return 0;
+        double acrescimo = 0;
+        if (pesoGramas == 100){
+            return getPrecoBase();
+        } else {
+            acrescimo = getPrecoBase() * pesoGramas / 100; 
+            try {
+                setPrecoBase(acrescimo);
+                validarPositivo(getPrecoBase());
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
+            
+        }
+        return getPrecoBase();
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return super.toString() + " [" + pesoGramas + " g]";
     }
 
 

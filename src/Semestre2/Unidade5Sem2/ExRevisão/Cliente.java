@@ -35,6 +35,8 @@ public class Cliente {
         if (this.indicadoPor == null) {
             throw new IllegalArgumentException("Cliente nulo é inválido.");
         }
+        indicadoPor.creditarCashback(10);
+        System.out.println(indicadoPor.getNome() + " recebeu R$ 10,00 em seu Cashback!");
     }
 
     public String getNome() {
@@ -75,7 +77,7 @@ public class Cliente {
             throw new IllegalArgumentException("O valor de crédito deve ser maior que 0.");
         } else {
             saldoCashback += valor;
-            System.out.println("Foram depositados R$ " + valor + " em seu saldo de Cashback.");
+            System.out.println("Foram depositados R$ " + valor + " no seu saldo de Cashback, " + nome);
         }
     }
 
@@ -84,7 +86,7 @@ public class Cliente {
             throw new SaldoInsuficienteException(saldoCashback, valor);
         } else {
             saldoCashback -= valor;
-            System.out.println("Foram utilizados R$ " + valor + " do seu saldo de Cashback.");
+            System.out.println("Foram utilizados R$ " + valor + " do seu saldo de Cashback, " + nome);
         }
     }
 

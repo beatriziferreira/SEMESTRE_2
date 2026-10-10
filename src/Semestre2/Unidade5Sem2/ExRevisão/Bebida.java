@@ -24,12 +24,25 @@ public class Bebida extends ItensCardapio {
 
     @Override
     public double calcularPreco() {
-        return 0;
+        if (isAlcoolica()){
+            double acrescimo = getPrecoBase() + 3;
+            try{
+                setPrecoBase(acrescimo);
+                validarPositivo(getPrecoBase());
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
+        }
+        return getPrecoBase();
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        String alcool = "";
+        if (isAlcoolica()){
+            alcool = " * ALCOÓLICA";
+        }
+        return super.toString() + " [" + getVolumeML() + "]" + alcool;
     }
 
 

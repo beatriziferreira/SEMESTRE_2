@@ -3,6 +3,7 @@ package Semestre2.Unidade5Sem2.ExRevisão;
 public abstract class ItensCardapio {
     private String nome;
     private double precoBase;
+    private double valorFinal;
 
     public ItensCardapio(String nome, double precoBase) {
         this.nome = nome;
@@ -13,6 +14,7 @@ public abstract class ItensCardapio {
         if (this.precoBase <= 0){
             throw new IllegalArgumentException("O preço base não pode ser menor ou igual a 0.");
         }
+        valorFinal = this.precoBase;
     }
 
     public String getNome() {
@@ -35,14 +37,18 @@ public abstract class ItensCardapio {
         }
     }
 
-    public double calcularPrecoComDesc(double percentual){
-        final double valorFinal = precoBase - (precoBase / 100 * percentual);
-        return valorFinal;
+    public final double calcularPrecoComDesc(double percentual){
+        if (percentual < 0 || percentual > 100){
+            throw new IllegalArgumentException("Valor de desconto deve ser entre 0 e 100");
+        }
+        valorFinal = precoBase - (precoBase / 100 * percentual);
+        setPrecoBase(valorFinal);
+        return precoBase;
     }
 
     @Override
     public String toString() {
-        return " ";
+        return nome + " - R$ " + precoBase;
     }
 
 }

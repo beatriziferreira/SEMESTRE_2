@@ -18,7 +18,7 @@ public class CentralCobranca {
         for (Cobravel cobravel : cobraveis) {
             total += cobravel.calcularValorCobrar();
         }
-       return total; 
+        return total; 
     }
 
     public int getTotalCobrancas(){
@@ -29,11 +29,13 @@ public class CentralCobranca {
         return total;
     }
 
-    public String gerarRelatorio(){
+    public void gerarRelatorio(){
+        System.out.println("=== RELATÓRIO ===");
         for(Cobravel cobravel : cobraveis){
-            cobravel.gerarComporovante();
-        };
-        return "Total a receber: " + calcularTotalAReceber();
+            System.out.println(cobravel.gerarComporovante());
+        }
+        System.out.println("------------------------");
+        System.out.println("Total a receber: " + calcularTotalAReceber());
     }
 
 
