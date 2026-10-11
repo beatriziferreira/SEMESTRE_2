@@ -32,4 +32,19 @@ class CentralCobrancaTest {
 
         assertEquals(266.98, central.calcularTotalAReceber(), 0.001);
     }
+
+    @Test
+    void registrarCobrancaNulaDeveLancarExcecao() {
+        CentralCobranca central = new CentralCobranca();
+
+        assertThrows(IllegalArgumentException.class,
+                () -> central.registrar(null));
+    }
+
+    @Test
+    void centralSemCobrancasDeveRetornarTotalZero() {
+        CentralCobranca central = new CentralCobranca();
+
+        assertEquals(0.00, central.calcularTotalAReceber(), 0.001);
+    }
 }

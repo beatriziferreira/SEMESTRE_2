@@ -39,4 +39,18 @@ class ClienteTest {
         Cliente outraAna = new Cliente("Ana", "ANA@FURB.BR", 30);
         assertTrue(ana.equals(outraAna));
     }
+
+    @Test
+    void clienteComIdadeAcimaDe120DeveLancarExcecao() {
+        assertThrows(IllegalArgumentException.class,
+                () -> new Cliente("Ana", "ana@furb.br", 121));
+    }
+
+    @Test
+    void creditarCashbackComValorNegativoDeveLancarExcecao() {
+        Cliente ana = new Cliente("Ana", "ana@furb.br", 25);
+
+        assertThrows(IllegalArgumentException.class,
+                () -> ana.creditarCashback(-10));
+    }
 }

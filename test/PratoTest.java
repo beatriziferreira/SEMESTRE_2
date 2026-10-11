@@ -24,4 +24,19 @@ class PratoTest {
         assertThrows(IllegalArgumentException.class,
                 () -> prato.calcularPrecoComDesc(120));
     }
+
+    @Test
+    void pratoPequenoDeveManterPrecoBase() {
+        Prato prato = new Prato("Xis", 30.00, 'P');
+
+        assertEquals(30.00, prato.calcularPreco(), 0.001);
+    }
+
+    @Test
+    void descontoNegativoDeveLancarExcecao() {
+        Prato prato = new Prato("Xis", 30.00, 'P');
+
+        assertThrows(IllegalArgumentException.class,
+                () -> prato.calcularPrecoComDesc(-10));
+    }
 }

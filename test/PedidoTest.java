@@ -99,4 +99,26 @@ class PedidoTest {
 
         assertEquals(primeiro.getNumero() + 1, segundo.getNumero());
     }
+
+    @Test
+    void adicionarItemNuloDeveLancarExcecao() {
+        Cliente ana = new Cliente("Ana", "ana@furb.br", 25);
+        Pedido pedido = new Pedido(ana);
+
+        assertThrows(IllegalArgumentException.class,
+                () -> pedido.adicionarItem(null));
+    }
+
+    @Test
+    void adicionarItemDepoisDeFinalizarDeveLancarExcecao() {
+        Cliente ana = new Cliente("Ana", "ana@furb.br", 25);
+        Pedido pedido = new Pedido(ana);
+
+        pedido.adicionarItem(new Prato("Xis", 30.00, 'P'));
+        pedido.finalizar();
+
+        assertThrows(IllegalStateException.class,
+                () -> pedido.adicionarItem(
+                        new Prato("Pizza", 40.00, 'M')));
+    }
 }
