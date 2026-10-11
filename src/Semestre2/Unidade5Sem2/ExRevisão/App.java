@@ -12,9 +12,9 @@ public class App {
         System.out.println("\n1 =============");        
 
         ArrayList<ItensCardapio> cardapio = new ArrayList<>();
-        ItensCardapio i1 = new Bebida("Chopp", 20.0, 500, true);
-        ItensCardapio i2 = new Prato("Feijão, arroz e fritas", 30.0, 'P');
-        ItensCardapio i3 = new Sobremesa("Petit gateau", 10.0, 100);
+        ItensCardapio i1 = new Bebida("Chopp", 20.00, 500, true);
+        ItensCardapio i2 = new Prato("X-Burguer", 30.00, 'P');
+        ItensCardapio i3 = new Sobremesa("Petit gateau", 10.00, 100);
 
         cardapio.add(i1);
         cardapio.add(i2);

@@ -70,6 +70,7 @@ public class Pedido implements Cobravel {
         }
         finalizado = true;
         System.out.println("Pedido finalizado com sucesso!");
+        cliente.creditarCashback(calcularSubtotal() * 0.05);        
         return finalizado;
     }
 

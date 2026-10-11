@@ -35,7 +35,7 @@ public class CentralCobranca {
             System.out.println(cobravel.gerarComporovante());
         }
         System.out.println("------------------------");
-        System.out.println("Total a receber: " + calcularTotalAReceber());
+        System.out.println("Total a receber: R$ " + calcularTotalAReceber());
     }
 
 

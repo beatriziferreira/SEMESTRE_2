@@ -26,7 +26,7 @@ public class Prato extends ItensCardapio {
                 validarPositivo(getPrecoBase());
             } catch (IllegalArgumentException e){
                 System.out.println("Erro: " + e.getMessage());
-            }
+            } 
             return getPrecoBase();
         } else if (tamanho == 'g' || tamanho == 'G'){
             double aumento = getPrecoBase() + (getPrecoBase() / 100 * 60);
@@ -35,7 +35,7 @@ public class Prato extends ItensCardapio {
                 validarPositivo(getPrecoBase());
             } catch (IllegalArgumentException e){
                 System.out.println("Erro: " + e.getMessage());
-            }
+            } return getPrecoBase();
             
         } return getPrecoBase();
     }
