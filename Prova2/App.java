@@ -25,14 +25,5 @@ public class App {
             System.out.println("Erro: " + e.getMessage());
         }
         System.out.println(ItemCardapio.getTotalItens());
-
-        Pedido p2 = new Pedido(c, "A", 2);
-
-        try {
-            p2.removerItem(i1);
-        } catch (IllegalStateException e) {
-            System.out.println("Erro: " + e.getMessage());
-        }
-        
     }
 }
